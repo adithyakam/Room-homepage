@@ -22,7 +22,64 @@ let hero = [
 let heroImage = document.getElementById("hero_im");
 let heroH1 = document.getElementById("hero_h1");
 let heroP = document.getElementById("hero_p");
+let ham = document.getElementById("hamburger");
+let arrLeft = document.querySelector(".arr-left");
+let arrRigth = document.querySelector(".arr-rigth");
+
+let index = 0;
 
 heroImage.src = hero[0].image;
 heroH1.innerHTML = hero[0].title;
 heroP.innerHTML = hero[0].content;
+
+function hamClicker() {
+  const navbar = document.querySelector(".navbar");
+
+  if (menushow) {
+    navbar.classList.remove("show");
+    ham.src = "./images/icon-hamburger.svg";
+
+    menushow = false;
+
+    console.log("hide");
+  } else {
+    navbar.classList.add("show");
+    menushow = true;
+    ham.src = "./images/icon-close.svg";
+    console.log("show");
+  }
+}
+
+let menushow = false;
+ham.addEventListener("click", hamClicker);
+
+const leftClic = () => {
+  if (--index < 0) {
+    heroImage.src = hero[0].image;
+    heroH1.innerHTML = hero[0].title;
+    heroP.innerHTML = hero[0].content;
+    index = 0;
+  } else {
+    heroImage.src = hero[index].image;
+    heroH1.innerHTML = hero[index].title;
+    heroP.innerHTML = hero[index].content;
+  }
+  console.log("left");
+};
+
+const rigthClic = () => {
+  if (++index > 2) {
+    heroImage.src = hero[2].image;
+    heroH1.innerHTML = hero[2].title;
+    heroP.innerHTML = hero[2].content;
+    index = 2;
+  } else {
+    heroImage.src = hero[index].image;
+    heroH1.innerHTML = hero[index].title;
+    heroP.innerHTML = hero[index].content;
+  }
+  console.log("rigth");
+};
+
+arrLeft.addEventListener("click", leftClic);
+arrRigth.addEventListener("click", rigthClic);
