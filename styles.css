@@ -109,6 +109,13 @@ p#hero_p {
   word-spacing: 1.5;
   font-weight: 500;
 }
+a {
+  color: var(--Dark-Gray);
+}
+
+a:visited {
+  color: var(--Very-Dark-Gray);
+}
 
 .arrows {
   position: absolute;
@@ -207,6 +214,10 @@ p#footer_p {
   img.logo {
     padding: 10px;
     margin: 0;
+  }
+
+  a {
+    color: var(--White);
   }
 
   a:visited {
